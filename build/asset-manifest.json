@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.6e20f07d.css",
-    "main.js": "/static/js/main.0bc8c1ba.js",
-    "index.html": "/index.html",
-    "main.6e20f07d.css.map": "/static/css/main.6e20f07d.css.map",
-    "main.0bc8c1ba.js.map": "/static/js/main.0bc8c1ba.js.map"
+    "main.css": "/fulyature.github.io/react-todoApp/static/css/main.6e20f07d.css",
+    "main.js": "/fulyature.github.io/react-todoApp/static/js/main.0bc8c1ba.js",
+    "index.html": "/fulyature.github.io/react-todoApp/index.html",
+    "main.6e20f07d.css.map": "/fulyature.github.io/react-todoApp/static/css/main.6e20f07d.css.map",
+    "main.0bc8c1ba.js.map": "/fulyature.github.io/react-todoApp/static/js/main.0bc8c1ba.js.map"
   },
   "entrypoints": [
     "static/css/main.6e20f07d.css",
