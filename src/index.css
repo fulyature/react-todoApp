@@ -26,11 +26,16 @@ h1 {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
 }
 input {
   width: 100%;
   font-size: 2rem;
+  padding-left: 2rem;
+  border: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 5px;
 }
 p {
   font-size: 2rem;
@@ -41,13 +46,14 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   margin: auto;
 }
 .gorev {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
+  font-size: 2rem;
 }
 .gorev p {
   width: 100%;
@@ -61,4 +67,5 @@ button {
   background-color: #f2b70582;
   border-radius: 1rem;
   border: none;
+  font-size: 1rem;
 }

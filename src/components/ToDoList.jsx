@@ -34,28 +34,31 @@ const ToDoList = () => {
         <button onClick={handleAdd}>ToDo Add</button>
       </div>
       <div className="todo-wrapper">
-        {todos.map((item) => (
-          <div
-            className="gorev"
-            key={item.id}
-            onDoubleClick={() => tamamlanmisGorev(item.id)}
-          >
-            <p
-              style={{
-                textDecoration: item.completed && "line-through",
-                background: item.completed && "#83a60377",
-              }}
+        {todos.map((item, index) => (
+          <>
+            <div
+              className="gorev"
+              key={item.id}
+              onDoubleClick={() => tamamlanmisGorev(item.id)}
             >
-              {item.val}
-            </p>
-            <button
-              onClick={() =>
-                setTodos((prev) => prev.filter((a) => a.id !== item.id))
-              }
-            >
-              Delete
-            </button>
-          </div>
+              {`${index + 1}.`}
+              <p
+                style={{
+                  textDecoration: item.completed && "line-through",
+                  background: item.completed && "#83a60377",
+                }}
+              >
+                {item.val}
+              </p>
+              <button
+                onClick={() =>
+                  setTodos((prev) => prev.filter((a) => a.id !== item.id))
+                }
+              >
+                Delete
+              </button>
+            </div>
+          </>
         ))}
       </div>
     </div>
