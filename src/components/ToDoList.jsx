@@ -8,49 +8,41 @@ const ToDoList = () => {
   // Verileri localStorage'dan al ve state'e set et
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    if (storedTodos.length === 0) {
-      setTodos([...data]);
-    } else {
+    if (storedTodos.length > 0) {
       setTodos(storedTodos);
     }
   }, []);
-
-  // Todos state değiştiğinde localStorage'a kaydet
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   const handleAdd = () => {
     const newTodo = {
       val: inputValue,
       // id: todos.length,
       // id:new Date().getTime(),
-      id: uuidv4(),
+      id: uuidv4(), //  This is a unique ID creator library
       completed: false,
     };
     console.log(newTodo);
+    const updatedTodos = [...todos, newTodo];
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
 
-    setTodos([...todos, newTodo]);
     setInputValue("");
   };
-  //   console.log(inputValue);
-  useEffect(() => {
-    if (todos.length > 0) {
-      try {
-        localStorage.setItem("todos", JSON.stringify(todos));
-        console.log("LocalStorage'a kaydedildi: ", todos);
-      } catch (error) {
-        console.error("LocalStorage yazma hatası: ", error);
-      }
-    }
-  }, [todos]);
-  const tamamlanmisGorev = (id) => {
-    setTodos(
-      todos.map((item) =>
-        item.id === id ? { ...item, completed: !item.completed } : item
-      )
-    );
+
+  const handleDelete = (id) => {
+    const updatedTodos = todos.filter((a) => a.id !== id);
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
+
+  const tamamlanmisGorev = (id) => {
+    const updatedTodos = todos.map((item) =>
+      item.id === id ? { ...item, completed: !item.completed } : item
+    );
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  };
+
   return (
     <div className="container">
       <div className="todo-app">
@@ -79,13 +71,7 @@ const ToDoList = () => {
             >
               {item.val}
             </p>
-            <button
-              onClick={() =>
-                setTodos((prev) => prev.filter((a) => a.id !== item.id))
-              }
-            >
-              Delete
-            </button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
           </div>
         ))}
       </div>
